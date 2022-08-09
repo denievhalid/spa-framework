@@ -1,6 +1,5 @@
 import App from "../core/app";
-import Header from "../components/Header";
-import Link from "../components/Link";
+import Link from "../core/router/components/link";
 
 const Home = () => {
   return (
@@ -14,7 +13,7 @@ const Home = () => {
           <a href="/settings">Настройки</a>
         </li>
       </ul>
-      <Link title={"hello"} to={"/he"} />
+      <Link title={"hello"} to={"/settings"} />
     </div>
   );
 };

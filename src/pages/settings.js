@@ -1,5 +1,4 @@
 import App from "../core/app";
-import Link from "../components/Link";
 
 function Settings() {
   return (
@@ -13,7 +12,6 @@ function Settings() {
           <a href="/settings">Настройки</a>
         </li>
       </ul>
-      <Link title={"hello"} to={"/he"} />
     </div>
   );
 }
