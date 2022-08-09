@@ -10,6 +10,10 @@ export default class App {
     this.router = router;
   }
 
+  createElement(tag, props, children) {
+    return VDom.create(tag, props, children);
+  }
+
   render() {
     VDom.mount(
       Dom.createFromVNode(this.router.page),
