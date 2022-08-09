@@ -1,4 +1,4 @@
-import VDom from "../core/vdom";
+import VDom from "../../vdom";
 
 const Link = ({ title, to }) => {
   const clickHandler = (e) => {
