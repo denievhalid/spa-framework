@@ -1,4 +1,4 @@
-import { createElement } from "../core/vdom/utils";
+import App from "../core/app";
 
 function Settings() {
   return (
