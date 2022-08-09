@@ -1,3 +1,4 @@
+import Location from "./location";
 import { forOf } from "../../utils";
 
 export default class Router {
@@ -16,9 +17,9 @@ export default class Router {
   }
 
   match() {
-    forOf(this.routes, (route) => {
-      if (route.path === location.pathname) {
-        this.page = new route.page();
+    forOf(this.routes, ({ path, page }) => {
+      if (Location.compare(path)) {
+        this.page = page();
       }
     });
   }

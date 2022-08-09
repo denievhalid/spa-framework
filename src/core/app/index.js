@@ -10,7 +10,7 @@ export default class App {
     this.router = router;
   }
 
-  static createElement(tag, props, children) {
+  static createElement(tag, props, ...children) {
     return VDom.create(tag, props, children);
   }
 

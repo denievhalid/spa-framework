@@ -1,4 +1,4 @@
-import { isHtmlNode, isTextNode } from "./utils";
+import { isEventListener, isHtmlNode, normalizeEventName } from "./utils";
 import { forIn, forOf, isArray, isString } from "../../utils";
 import { CLASS_ATTRIBUTE, CLASSNAME_ATTRIBUTE } from "../../constants";
 
@@ -13,7 +13,11 @@ export default class Dom {
   }
 
   append(node) {
-    this.node.append(node);
+    this.node.appendChild(node);
+  }
+
+  on(event, handler) {
+    this.node.addEventListener(event, handler);
   }
 
   setAttr(key, value) {
@@ -22,11 +26,15 @@ export default class Dom {
 
   resolveAttrs(attrs) {
     forIn(attrs, (key, value) => {
-      if ([CLASSNAME_ATTRIBUTE].includes(key)) {
-        key = CLASS_ATTRIBUTE;
-      }
+      if (isEventListener(key)) {
+        this.on(normalizeEventName(key), value);
+      } else {
+        if ([CLASSNAME_ATTRIBUTE].includes(key)) {
+          key = CLASS_ATTRIBUTE;
+        }
 
-      this.setAttr(key, value);
+        this.setAttr(key, value);
+      }
     });
   }
 
@@ -37,7 +45,7 @@ export default class Dom {
   }
 
   static createFromVNode(vNode) {
-    if (isTextNode(vNode)) {
+    if (isString(vNode)) {
       return Dom.createTextNode(vNode);
     }
 

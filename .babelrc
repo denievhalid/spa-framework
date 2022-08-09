@@ -1,6 +1,10 @@
 {
   "plugins": [
     "@babel/plugin-syntax-jsx",
-    ["@babel/plugin-transform-react-jsx", { "pragma": "App.createElement" }]
+    [
+      "@babel/plugin-transform-react-jsx", {
+        "pragma": "App.createElement"
+      }
+    ]
   ]
 }

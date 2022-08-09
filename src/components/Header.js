@@ -1,13 +1,18 @@
 import App from "../core/app";
 
 function Header() {
+  const clickHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <header className="header">
       <div className="header__inner">
-        <a className="header__logo logo" href="">
+        <a onClick={clickHandler} className="header__logo logo" href="">
           Logo
         </a>
       </div>
+      <div className="header__button">123</div>
     </header>
   );
 }

@@ -5,3 +5,11 @@ export const isHtmlNode = (node) => {
 export const isTextNode = (node) => {
   return node.nodeType === Node.TEXT_NODE;
 };
+
+export const isEventListener = (val) => {
+  return val.startsWith("on");
+};
+
+export const normalizeEventName = (event) => {
+  return event.substr(2).toLowerCase();
+};
